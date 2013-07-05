@@ -1,0 +1,73 @@
+<div id="masthead">
+		
+		<div class="content_pad">
+			
+			<div id="content-header">
+			 <img src="/images/manage_investiture/manage_investiture_logo.png" /> 
+			  <h1>Laurels</h1>
+			  <h3>Latest Laurels</h3>
+			  <div id="app-back-button">
+			    <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+			  </div>
+			</div>
+
+		</div> <!-- .content_pad -->
+		
+	</div> <!-- #masthead -->	
+	
+
+<div id="content" class="xgrid">   
+		  <div id="inner-tab-menu">
+			  <ul>
+			    <li><%= link_to "View all", :controller => 'laurels', :action => 'all' %></li>
+			    <% if permitted_to? :add,:laurel %>
+			      <li><%= link_to 'Add', :controller => 'laurels', :action => 'add' %>
+			    <% end %>
+			  </ul>
+			</div>
+		
+		</div>
+		
+		<div id="page-yield">
+		
+		  <% unless flash[:notice].nil? %>
+		    <p class="flash-msg"> <%= flash[:notice] %> </p>
+		  <% end %>
+		
+		  <div id="all_news">
+		    <table id="listing"  width="100%" cellpadding="1" cellspacing="1">
+		      <tr class="tr-head">
+		        <td>
+		          Sl no.
+		        </td>
+		        <td>
+		          Title
+		        </td>
+		   
+		        <td>
+		          Posted
+		        </td>
+		      </tr>
+		      <tr class="tr-blank"></tr>
+		      <% @laurel.each_with_index do |r,i| %>
+		        <% link_value = r.title %>
+		        <tr class="tr-<%= cycle('odd', 'even') %>">
+		          <td class="col-1">
+		            <%= i+1 %>
+		          </td>
+		          <td class="col-3">
+		            <%=  link_to link_value, :controller => 'laurels', :action => 'view', :id => r.id%>
+		          </td>
+		         
+		          <td class="col-3">
+		            Posted on  <%= (r.created_at) %> 
+		          </td>
+		        </tr>
+		      <% end %>
+		
+		    </table>
+		        <%= will_paginate @laurel %>
+		  </div>
+		
+		</div>
+		</div>

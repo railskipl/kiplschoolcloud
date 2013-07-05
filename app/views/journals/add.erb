@@ -1,0 +1,49 @@
+<div id="masthead">
+		
+		<div class="content_pad">
+			<div id="content-header">
+			  <img src="/images/manage_news/manage_news_logo.png" />
+			  <h1>Journal</h1>
+			  <h3>Publish School Journal</h3>
+			  <div id="app-back-button">
+				<%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+			  </div>
+			</div>
+		</div> <!-- .content_pad -->
+		
+	</div> <!-- #masthead -->	
+	
+	<div id="content" class="xgrid">
+
+
+
+
+		<div id="page-yield">
+		
+		<% form_for :journal, :html =>{ :multipart => true } do |f| %>
+		
+		
+		    <div id="add_news_form">
+		      <div class="news_label_field">
+		        <label for="title">Title</label>
+		        <div id="news_title_text_field_bg"><%= f.text_field :title,:value => @journal.title %></div>
+		      </div>
+		
+		      <div class="news_label_field">
+		        <label for="news_content">Summary</label>
+		        <div id="news_content_text_field_bg"><%= fckeditor_textarea :journal, :summary, :value => @journal.summary %></div>
+		      </div> 
+		
+			  <div class="news_label_field">
+		        <label for="news_content">Upload Journal (PDF)</label>
+		        <div><%= f.file_field :attach %></div>
+		      </div>
+		
+		    </div>
+		
+		    <%= submit_tag "", :value => "► Publish Journal", :class => "news_publish_button" %>
+		
+		  <% end %>
+		
+		</div>
+		</div>

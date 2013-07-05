@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  from: 2012-10-17
+  to: 2012-10-17
+  amount: 1
+
+two:
+  from: 2012-10-17
+  to: 2012-10-17
+  amount: 1

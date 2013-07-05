@@ -1,0 +1,61 @@
+<div id="masthead">
+		
+		<div class="content_pad">
+			
+			<div id="content-header">
+			  <img src="/images/manage_investiture/manage_investiture_logo.png" />
+			  <h1>Laurels</h1>
+			  <h3>Latest Laurels</h3>
+			  <div id="app-back-button">
+			  <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+			  </div>
+			</div>
+			
+		</div> <!-- .content_pad -->
+		
+	</div> <!-- #masthead -->	
+
+
+	<div id="content" class="xgrid">
+		       <div id="inner-tab-menu">
+	<ul>
+<li><%= link_to "View all", :controller => 'laurels', :action => 'all' %></li>           
+<% if @current_user.admin? %> 
+			<li>
+			   	 
+  <%= link_to "► Edit laurel", 
+				        {:controller => "laurels",  :action => "edit", :id => @laurel.id } %>
+			  </li>   
+			
+			<li>
+			   	 <%= link_to "► Delete laurel",
+			        { :controller => "laurels", :action => "delete", :id => @laurel.id },
+			        :confirm => 'Are you sure you want to delete this laurels item?'%>      
+				       <% end %> 
+				</li>
+			
+			</div>
+			
+		<div id="page-yield">
+		
+		  <% unless flash[:notice].nil? %> <p class="flash-msg"> <%= flash[:notice] %> </p> <% end %>
+		
+		    <div id="news_title">
+		    	<h3> <%= @laurel.title %> </h3>
+		    </div>
+		    <div id="create_date">
+		   <i>   Posted on <%= @laurel.created_at.strftime("%A, %d %B, %Y") %>    </i>
+		    </div>       
+		<br /> 
+		    <div id="news_content"> 
+			<b>Summary</b>
+		      <%= sanitize @laurel.summary , :tags => %w[b i a h1 h2 h3 u strike p], :attributes => %w[href]%>
+		    </div>
+		       <br />
+		 	<div id="news_content"> 
+			<b>Description</b> 
+		      <%= sanitize @laurel.description , :tags => %w[b i a h1 h2 h3 u strike p], :attributes => %w[href]%>
+		    </div>
+		     
+	</div>
+	</div>

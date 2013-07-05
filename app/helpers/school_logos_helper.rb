@@ -1,0 +1,2 @@
+module SchoolLogosHelper
+end

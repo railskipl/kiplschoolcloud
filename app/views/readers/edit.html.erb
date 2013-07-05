@@ -1,0 +1,28 @@
+<div id="content" class="xgrid">
+		
+		<div id="page-yield">
+		
+		   <% form_for :reader,:url=>{:action =>'update',:id=>@reader.id} do |f|%> 
+		
+		    <%= error_messages_for :reader %>
+		
+		    <div id="add_news_form">
+		      <div class="news_label_field">
+		        <label for="news_title">Reader Name</label>
+		        <div id="news_title_text_field_bg"><%= f.text_field :reader_name, :value => @reader.reader_name %></div>
+		      </div>
+		
+		      <div class="news_label_field">
+		        <label for="news_content">Reader Tag</label>
+		        <div id="news_content_text_field_bg"><%= f.text_field :reader_tag, :value => @reader.reader_tag %></div>
+		      </div>
+			 <div class="news_label_field">
+		        <label for="news_content">Description</label>
+		        <div id="news_content_text_field_bg"><%= f.text_field :location, :value => @reader.location %></div>
+		      </div>
+		    </div>
+		
+		    <%= submit_tag "", :value => "► Update", :class => "news_publish_button" %>
+		  <% end %>
+		
+		</div>

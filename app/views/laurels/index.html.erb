@@ -1,0 +1,61 @@
+<div id="masthead">
+		
+		<div class="content_pad">
+			
+			<div id="content-header">
+			  <img src="/images/manage_investiture/manage_investiture_logo.png" />
+			  <h1>Laurels</h1>
+			  <h3>Latest Laurels</h3>
+			  <div id="app-back-button">
+			  <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+			  </div>
+			</div>
+			
+		</div> <!-- .content_pad -->
+		
+	</div> <!-- #masthead -->	
+
+<div id="content" class="xgrid">
+	
+	<div id="inner-tab-menu">
+	  <ul>
+	    <li><%= link_to "View all", :controller => 'laurels', :action => 'all' %></li>
+	    
+	      <li><%= link_to 'Add', :controller => 'laurels', :action => 'add' %></li>
+	    
+	  </ul>
+	</div>
+	<div id="search_add_news_area">
+	<% unless flash[:notice].nil? %><p class="flash-msg"> <%= flash[:notice] %> </p><% end %>
+	    <div class="news_search_add">
+	      <div id="news_bg">
+	        <form name="s1form" action="" style="display:inline;">
+	          <h2>Search laurels</h2>
+	          <%= text_field_tag("query", params['query'], :autocomplete => 'off') %>
+	          <div id="go"><%= submit_tag "", :value =>"Go", :controller=> 'laurels', :action=>"index" %></div>
+	        </form>
+	        <div class="extender2"></div>
+	      </div>
+	    </div>
+	    <div class="extender"></div>
+	  </div>
+	<div id="page-yield">
+	
+	  <% unless @laurel.empty? %>
+	    <div id="investiture_result">
+	      <% @laurel.each_with_index do |r,i| %>
+	        <div id="news_search_result">
+	          <% link_value = r.title %>
+	          <%=  link_to link_value, :controller => "laurels", :action => "view", :id => r.id%><br/>
+	          
+	        </div>
+	      <%= '<div class="extender"></div>' if i%3 == 2 %>
+	      <% end %>
+	    </div>
+	  <% end %>
+	
+	  <div class="extender"></div>
+
+
+</div> <!-- #content -->
+</div>

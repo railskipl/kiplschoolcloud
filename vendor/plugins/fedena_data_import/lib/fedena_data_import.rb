@@ -1,0 +1,3 @@
+class FedenaDataImport
+  
+end

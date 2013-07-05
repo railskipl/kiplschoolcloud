@@ -1,0 +1,42 @@
+<div style="font-family:Courier;">
+	<div style="text-align:center;font-size:35px;">
+		<u> Birth Certificate </u>
+	</div>
+	
+	<div class="expander" style="height:20px">
+	</div>
+
+	<div style="height:55px;">
+ 		<div style="float:left;font-size:15px;font-weight:bold;">
+			Ref:- Vidhya/Panch/2012.
+ 		</div>	
+
+ 		<div style="float:right;font-size:20px;">
+			Date:- <%= Date.today %>
+		</div>
+	</div>
+
+	<div class="expander" style="height:20px">
+	</div>
+</div>
+
+<div style="height:200px;font-style:Courier">
+		<div style="font-size:20px;line-height:35px;">
+			It&nbsp;&nbsp;is&nbsp;&nbsp;certified&nbsp;&nbsp;that <span style="font-size:12px;font-weight:bold;"><%= @student.full_name %></span>,&nbsp;&nbsp;S/o,D/o <span style="font-size:12px;font-weight:bold;"><%= @student.immediate_contact || ". . . . . . . . . . . . . .  . ." %></span>,<br/>
+			Mr/Mrs <span style="font-size:12px;font-weight:bold;"><%= @student.full_name %> </span>&nbsp;&nbsp;is&nbsp;&nbsp;a&nbsp;&nbsp;regular&nbsp;&nbsp;student&nbsp;&nbsp;of&nbsp;&nbsp;this&nbsp;&nbsp; school.<br/>
+			His/Her&nbsp;&nbsp;admission&nbsp;&nbsp;No.is&nbsp;&nbsp;<span style="font-size:12px;font-weight:bold;"><%= @student.admission_no %> </span>His/Her&nbsp;&nbsp;date&nbsp;&nbsp;of&nbsp;&nbsp;birth&nbsp;&nbsp;as<br/>
+			recorded&nbsp;in&nbsp;the&nbsp;school&nbsp;register&nbsp;is <span style="font-size:12px;font-weight:bold;"><%= @student.date_of_birth.strftime '%d/%m/%Y' %></span> .(in&nbsp;words) - <br/> <span style="font-size:20px;font-weight:bold;">  <%= @student.date_of_birth.strftime("%B %d, %Y") %> </span>
+		</div>
+	</div>
+
+<div class="expander" style="height:100px">
+        </div>
+
+<div style="height:100px;font-style:Courier;float:right;">
+ <div style="font-size:20px">
+	Principal <br/>
+
+ </div>
+</div>
+
+	

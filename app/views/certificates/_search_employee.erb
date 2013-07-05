@@ -1,0 +1,31 @@
+<label for="user_name" style="position: relative;bottom: 7px;left: 26px;font-size: 14px;color:red"><%= t('search_employee') %></label>
+<div id="search_textbox">
+  <%= text_field_tag("query", params['query'], :autocomplete => 'off',:style => "margin-left:2px ;margin-right:9px;") %>
+</div>
+
+<div class="extender"></div>
+
+<div id="data_all">
+</div>
+
+<script type="text/javascript">
+    var certificate_type = "<%= params[:certificate_type] %>"
+    function search_ajax(){
+      if ($('query').value.include("%")) return;
+        <%="#{remote_function(:url => {:action => "list_of_employee_ajax"},
+:with => "'query='+$('query').value+'&certificate_type='+certificate_type",
+:before => "Element.show('loader')",
+:success => "Element.hide('loader')",
+:update=>"list_all"
+)}"%>
+  }
+
+    jQuery('input#query').keydown(function(event){
+      console.log('true')
+      search_ajax();
+    })
+</script>
+
+<div id="list_all" style="width:662px"></div>
+
+</div> 

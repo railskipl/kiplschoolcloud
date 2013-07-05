@@ -1,0 +1,17 @@
+sms_settings:
+ username: 'chandrakant.karmankar@kunalinfotech.net'
+ password: 'versatile'
+ sendername: 'School-Cloud'
+ host_url: 'http://www.businesssms.co.in/sms.aspx'
+ success_code: "success"
+
+parameter_mappings:
+ username: username
+ password: password
+ sendername: sendername
+ message: message
+ phone: phone
+
+# Additional parameters to be added should given in the format "param1=value1&param2=value2&..."
+additional_parameters: ""
+ 

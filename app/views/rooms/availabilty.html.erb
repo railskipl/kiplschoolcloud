@@ -1,0 +1,70 @@
+<h3 style='text-align:center;margin:0px;color:grey;'><%= t('allocating_room') %></h3>
+<div id="content-header" style="height:15px">
+</div>
+
+<div id="page-yield" style="position:relative;left:20%;">
+  <% unless flash[:notice].nil? %>
+    <p class="flash-msg"> <%= flash[:notice] %> </p>
+  <% end %>
+  <div class="box">
+    <% form_tag  allocate_path,:method => :post ,:id => 'remote_form' do %>
+      <div class="label-field-pair">
+        <%= t("hostel") %> : 
+        	<select id="hostel_type">
+        		<option value=''> <%= t("please_select") %> </option>
+        		<option value='Boys'><%=t("boys") %></option>
+        		<option value='Girls'><%= t("girls") %></option>
+        		<option value='Common'><%= t("common") %></option>
+        	</select>
+
+      </div>
+      <%= hidden_field_tag 'student_id',@student.id %>
+      <div class="rooms-list" style="font-size:12px">
+      </div>
+      <div class="submit" style="position:relative;left:75px;">
+      	<%= submit_tag "", :value => "#{t(:allocate)}", :class => "submit_button" %>
+        <!-- Routes Allocation for bus services -->
+      </div>  
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+	(function($) {
+		$(document).ready(function() {
+			$('select#hostel_type').bind('change',function() {
+				 $.ajax({
+				 		url : '/get_rooms',
+				 		type: 'GET',
+				 		data: 'hostel_type='+$(this).val(),
+				 		dataType: 'html',
+				 		success: function(html) {
+				 			console.log('Reached Here');
+				 			$('div.rooms-list').html(html);
+				 		}
+				 })
+			})
+
+			$('form#remote_form').bind('submit',function(event) {
+				event.preventDefault();
+				if ($("input.room_id[type=radio]").length > 0 && !$("input[type=radio].room_id").is(':checked')) { 
+					alert('Ohhh It seem that you havent allocate a room yet') 
+				}
+				else {
+					$.ajax({
+						url : '/allocating',
+						type: 'POST',
+						data: $(this).serialize(),
+						dataType: 'html',
+						success: function(html) {	
+							$('div#page-yield').prepend(html);
+							window.parent.setTimeout((function(){})(),10000);
+							window.parent.jQuery.fancybox.close();
+						}
+					})
+				}
+			})
+
+		})
+	})(jQuery)
+</script>

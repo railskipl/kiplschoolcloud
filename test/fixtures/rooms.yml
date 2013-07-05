@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sr_no: MyString
+  room_no: MyString
+  student_per_room: 1
+  availability: false
+  rent: 1.5
+
+two:
+  sr_no: MyString
+  room_no: MyString
+  student_per_room: 1
+  availability: false
+  rent: 1.5

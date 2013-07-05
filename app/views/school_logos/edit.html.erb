@@ -1,0 +1,39 @@
+<div id="masthead">
+	
+	<div class="content_pad">
+		<div id="content-header">
+		 <img src="/images/manage_investiture/manage_investiture_logo.png" /> 
+		  <h1>School logo</h1>
+		  <h3>Edit School logo</h3>
+		  <div id="app-back-button">
+			<%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+		  </div>
+		</div>
+	</div> <!-- .content_pad -->
+	
+</div> <!-- #masthead -->	
+
+<div id="content" class="xgrid">
+	<div id="page-yield">
+	
+	  <% unless flash[:notice].nil? %> <p class="flash-msg"> <%= flash[:notice] %> </p> <% end %>
+	
+	  <% form_for :school_logo,:html => { :multipart => true } do |f| %>
+	
+	    <%= error_messages_for :school_logo %>
+	
+	    <div id="add_investiture_form">
+	     <div class="news_label_field">
+	        <label for="news_title">Upload Photo</label>
+	        <div id="news_title_text_field_bg"><%= f.file_field :logo %></div>
+	        <p><%= image_tag @school_logo.logo.url(:thumb) %></p>
+	      </div>
+	
+	    </div>
+	
+	    <%= submit_tag "", :value => "► Edit logo", :class => "news_publish_button" %>
+	
+	  <% end %>
+	
+	</div>	
+</div> <!-- #content -->

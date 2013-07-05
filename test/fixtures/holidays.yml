@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  dateofholiday: 2012-12-06
+
+two:
+  title: MyString
+  dateofholiday: 2012-12-06

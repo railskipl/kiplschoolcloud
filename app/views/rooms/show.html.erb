@@ -1,0 +1,28 @@
+<p>
+  <b>Sr no:</b>
+  <%=h @room.sr_no %>
+</p>
+
+<p>
+  <b>Room no:</b>
+  <%=h @room.room_no %>
+</p>
+
+<p>
+  <b>Student per room:</b>
+  <%=h @room.student_per_room %>
+</p>
+
+<p>
+  <b>Availability:</b>
+  <%=h @room.availability %>
+</p>
+
+<p>
+  <b>Rent:</b>
+  <%=h @room.rent %>
+</p>
+
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>

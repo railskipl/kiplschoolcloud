@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  hostel_type: MyString
+  information: MyText
+
+two:
+  name: MyString
+  hostel_type: MyString
+  information: MyText

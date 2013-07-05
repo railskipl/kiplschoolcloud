@@ -1,0 +1,49 @@
+<div id="masthead">
+		
+		<div class="content_pad">
+			<div id="content-header">
+			 <img src="/images/manage_investiture/manage_investiture_logo.png" /> 
+			  <h1>Readers</h1>
+			  <h3>Add New RFID Reader</h3>
+			  <div id="app-back-button">
+				<%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+			  </div>
+			</div>
+		</div> <!-- .content_pad -->
+		
+	</div> <!-- #masthead -->	
+
+
+<div id="content" class="xgrid">
+		<div id="page-yield">
+		
+		  <% unless flash[:notice].nil? %> <p class="flash-msg"> <%= flash[:notice] %> </p> <% end %>
+		
+		  <% form_for :reader do |f| %>
+		
+		    <%= error_messages_for :reader%>
+		
+		    <div id="label-field-pair">
+		     <div class="label-field-pair">
+		        <label for="news_title">Reader Name</label>
+		        <div id="input-container"><%= f.text_field :reader_name, :value => @reader.reader_name %></div>
+		      </div>
+
+		      <div class="label-field-pair">
+		        <label for="news_title">Reader Tag</label>
+		        <div id="input-container"><%= f.text_field :reader_tag, :value => @reader.reader_tag %></div>
+		      </div>
+			 <div class="label-field-pair">
+		        <label for="news_title">Location</label>
+		        <div id="input-container"><%= f.text_field :location, :value => @reader.location %></div>
+		      </div>
+		
+		    </div>
+		    <br/>
+		
+		    <%= submit_tag "", :value => "► Add Reader", :class => "news_publish_button" %>
+		
+		  <% end %>
+		
+		</div>
+		</div>

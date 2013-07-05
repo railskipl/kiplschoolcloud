@@ -1,0 +1,9 @@
+<div style="text-align:center;font-size:20px;font-family:Monaco;color:red;border-bottom:1px solid #ccc"> Error </div>
+<% @errors = JSON.parse @reason.reason %>
+<div style="font-family:Monaco;font-size:12px">
+	<ol>
+		<% @errors.each do |error| %>
+			<li> <%= error %> </li>
+		<%end%>
+	</ol>
+</div>

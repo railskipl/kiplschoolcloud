@@ -1,0 +1,33 @@
+<div id="masthead">
+		
+		<div class="content_pad">
+			<div id="content-header">
+			   <%= image_tag("/images/routes/route.png") %>
+  <h1><%= @route.name %></h1>
+  <% if @route.lat and @route.lng %>
+	<h3>
+		<span> <%= t('latitude') %> : <%= @route.lat %> </span> <br/>
+		<span> <%= t('longitude') %>: <%= @route.lng %> </span>
+	</h3>
+<%end%>
+			  <div id="app-back-button">
+    <%= link_to_function image_tag("/images/buttons/back.png",:border => 0), "history.back()" %>
+			  </div>
+			</div>	
+		</div> <!-- .content_pad -->
+		
+	</div> <!-- #masthead -->	
+	
+
+
+	<div id="content" class="xgrid">
+<div id="page-yield">
+	<% if @route.lat and @route.lng %>
+		<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @route.lat %>,<%= @route.lng %>&zoom=12&size=400x400&markers=color:red%7Clabel:<%= CGI.unescape(@route.name) %>%7C<%= @route.lat %>,<%= @route.lng %>&sensor=false" />
+	<%end%>
+
+	<% unless (@route.lat and @route.lng) %>
+		<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @route.name %>&zoom=14&size=400x400&markers=color:red%7Clabel:<%= CGI.unescape(@route.name) %>%7C<%= @route.name %>&sensor=false" />
+	<%end%>
+</div>
+</div>

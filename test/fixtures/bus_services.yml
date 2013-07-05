@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bus_name: MyString
+  bus_no: 1
+  driver_name: MyString
+  conduct_name: MyString
+  mobile_no: 1
+  bus_allocated_no: 1
+  bus_start_point: MyString
+  bus_end_point: MyString
+
+two:
+  bus_name: MyString
+  bus_no: 1
+  driver_name: MyString
+  conduct_name: MyString
+  mobile_no: 1
+  bus_allocated_no: 1
+  bus_start_point: MyString
+  bus_end_point: MyString

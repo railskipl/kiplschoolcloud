@@ -1,0 +1,13 @@
+<% if @rooms.length == 0 %>
+	<%= t('sorry_room') %>
+ <%else%>	
+	<%= t('available_room_text') %>
+<%end%>
+<% @rooms.in_groups_of(4,false).each do |rooms| %>
+	<% rooms.each do |room| %>
+		<div class="room_divider" style="margin-top:12px;margin-left:16px;">
+			<%= radio_button_tag 'room_id',room.id,false,:class => 'room_id'%>
+			<%= room.room_no %>
+		</div>
+	<%end%>
+<%end%>
